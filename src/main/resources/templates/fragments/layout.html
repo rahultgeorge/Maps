@@ -41,6 +41,17 @@
         </div>
     </nav>
     <div th:replace="${template}"/>
+	
+	<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoicmFodWx0Z2VvcmdlIiwiYSI6ImNqaG5lODRjMjNwODIzNm5tcG1hNHV2MnUifQ.y_2bEvmsNFPRZoXqoZyxkg';
+	var map = new mapboxgl.Map({
+	container: 'map',
+	style: 'mapbox://styles/mapbox/streets-v10'
+	});
+	</script>
+	<script src='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
+	
 
     <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
     <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
