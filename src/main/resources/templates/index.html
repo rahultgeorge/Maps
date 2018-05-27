@@ -15,7 +15,16 @@
 	center: [0,0],
 	zoom: 0
 	});
+	//Disable zoom through click
+	map.doubleClickZoom.disable()
 	
+	map.on('zoomend',function(){
+	new mapboxgl.Popup()
+            .setLngLat([32.5159,15.5984])
+            .setHTML("Zoomed in kiddo")
+            .addTo(map);
+		
+	});
 	
 	document.getElementById('fly').addEventListener('click', function() {
 	    // Fly to Sudan 
@@ -27,7 +36,7 @@
 	        // These options control the ending camera position: centered at
 	        // the target, at zoom level 9, and north up.
 	        center: target,
-	        zoom: 9,
+	        zoom: 15,
 	        bearing: 0,
 
 	        // These options control the flight curve, making it move

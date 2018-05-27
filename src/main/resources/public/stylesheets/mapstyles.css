@@ -2,9 +2,9 @@ body { margin:0; padding:0; }
 #map { position:absolute; top:0; bottom:0; width:100%; }
 #fly {
       display: block;
-      position: relative;
+      position: absolute;
       margin: 0px auto;
-      width: 50%;
+      width: 20%;
       height: 40px;
       padding: 10px;
       border: none;
