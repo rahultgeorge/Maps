@@ -5,7 +5,12 @@
 	<br/>
 	<button id='fly'>Fly</button>
 
-	
+	<div class='map-overlay-container'>
+	  <div class='map-overlay'>
+	    <h2 id='location-title'></h2>
+	    <p id='location-description'></p>
+	  </div>
+	</div>
 	
 	<script>
 	mapboxgl.accessToken = 'pk.eyJ1IjoicmFodWx0Z2VvcmdlIiwiYSI6ImNqaG5lODRjMjNwODIzNm5tcG1hNHV2MnUifQ.y_2bEvmsNFPRZoXqoZyxkg';
@@ -13,18 +18,12 @@
 	container: 'map',
 	style: 'mapbox://styles/mapbox/streets-v10',
 	center: [0,0],
-	zoom: 0
+	zoom: 0,
+	interactive: false
 	});
-	//Disable zoom through click
-	map.doubleClickZoom.disable()
+
 	
-	map.on('zoomend',function(){
-	new mapboxgl.Popup()
-            .setLngLat([32.5159,15.5984])
-            .setHTML("Zoomed in kiddo")
-            .addTo(map);
-		
-	});
+	
 	
 	document.getElementById('fly').addEventListener('click', function() {
 	    // Fly to Sudan 
@@ -36,13 +35,13 @@
 	        // These options control the ending camera position: centered at
 	        // the target, at zoom level 9, and north up.
 	        center: target,
-	        zoom: 15,
+	        zoom: 18,
 	        bearing: 0,
 
 	        // These options control the flight curve, making it move
 	        // slowly and zoom out almost completely before starting
 	        // to pan.
-	        speed: 0.5, // make the flying slow
+	        speed: 1, // make the flying slow
 	        curve: 1, // change the speed at which it zooms out
 
 	        // This can be any easing function: it takes a number between
