@@ -20,5 +20,12 @@
 	center: [0,0],
 	zoom: 0
 	});
+	map.on('load', function () {
+		
+new mapboxgl.Popup()
+            .setLngLat([0,0])
+            .setHTML("Welcome")
+            .addTo(map);
+	})
 	</script>
 </body>
