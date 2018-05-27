@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'index')}">
 <body>
-	<div id='map'/>
 	<button id='fly'>Fly</button>
+	<div id='map'></div>
+	<div class='map-overlay-container'>
+	  <div class='map-overlay'>
+	    <h2 id='location-title'></h2>
+	    <p id='location-description'></p>
+	  </div>
+	</div>
+	
 	<script>
 	mapboxgl.accessToken = 'pk.eyJ1IjoicmFodWx0Z2VvcmdlIiwiYSI6ImNqaG5lODRjMjNwODIzNm5tcG1hNHV2MnUifQ.y_2bEvmsNFPRZoXqoZyxkg';
 	var map = new mapboxgl.Map({
@@ -11,13 +18,14 @@
 	center: [0,0],
 	zoom: 0
 	});
-	var isAtStart=true;
+	var title = document.getElementById('location-title');
+	var description = document.getElementById('location-description');
+	
 	document.getElementById('fly').addEventListener('click', function() {
 	    // Fly to Sudan 
-	    var target = [15.5984, 32.5159];
+	    var target = [32.5159,15.5984];
 
-	    // and now we're at the opposite point
-	    isAtStart = !isAtStart;
+	  
 
 	    map.flyTo({
 	        // These options control the ending camera position: centered at
@@ -29,7 +37,7 @@
 	        // These options control the flight curve, making it move
 	        // slowly and zoom out almost completely before starting
 	        // to pan.
-	        speed: 0.2, // make the flying slow
+	        speed: 0.5, // make the flying slow
 	        curve: 1, // change the speed at which it zooms out
 
 	        // This can be any easing function: it takes a number between
