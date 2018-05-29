@@ -18,22 +18,13 @@
 	container: 'map',
 	style: 'mapbox://styles/mapbox/streets-v10',
 	center: [0,0],
-	zoom: 0,
+	zoom: 1,
 	});
 
 	
 	var title = document.getElementById('location-title');
 	var description = document.getElementById('location-description');
-	
-	
-	map.on('load', function () {
-
-	    map.addLayer({
-	        "id": "points",
-	        "type": "symbol",
-	        "source": {
-	            "type": "geojson",
-	            "data": {
+	var GEOJSON={
 	                "type": "FeatureCollection",
 	                "features": [{
 	                    "type": "Feature",
@@ -43,39 +34,51 @@
 	                    },
 	                    "properties": {
 	                        "title": "First African Cup of Nations",
-	                        "icon": "monument",
+	                        "icon": "marker",
 							"description":"The 1957 African Cup of Nations was the first edition of the Africa Cup of Nations, the football championship of Africa (CAF). It was hosted by Sudan, and three teams participated: Egypt, Sudan, and Ethiopia."
 	                    }
 	                }, {
 	                    "type": "Feature",
 	                    "geometry": {
 	                        "type": "Point",
-	                        "coordinates": [30.0450,31.2235 ]
+	                        "coordinates": [30.0450,31.2235]
 	                    },
 	                    "properties": {
 	                        "title": "Second African Cup of Nations",
-	                        "icon": "harbor",
+	                        "icon": "marker",
 							"description":"The 1959 African Cup of Nations was the second edition of the Africa Cup of Nations, the football championship of Africa (CAF). It was hosted and won by the United Arab Republic, a short-lived confederation between Egypt and Syria. Only three teams participated: host team United Arab Republic, Sudan and Ethiopia. All three matches took place in Cairo."
 							             }
 	                }]
-	            }
-	        },
+	            
+	        ,
 	        "layout": {
 	            "icon-image": "{icon}-15",
 	            "text-field": "{title}",
 	            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
 	            "text-offset": [0, 0.6],
 	            "text-anchor": "top"
-	        }
+	        }}
+			;
+	
+	map.on('load', function () {
+
+	    map.addLayer({
+	        "id": "points",
+	        "type": "symbol",
+	        "source": {
+	            "type": "geojson",
+	            "data": 
 	    });
 	});
+	var pos=0;
 
 	
 	document.getElementById('fly').addEventListener('click', function() {
 	    // Fly to Sudan 
-	    var target = [32.5159,15.5984];
+	    var target = GEOJSON.features[pos].geometry.coordinates;
 
-	  
+	    title.textContent=GEOJSON.features[pos].properties.title;
+		description.textContent=GEOJSON.features[pos].properties.description;
 
 	    map.flyTo({
 	        // These options control the ending camera position: centered at
