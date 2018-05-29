@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'index')}">
-<body onload="init()">
+<body onload="initMAP()">
 	<div id='map'></div>
 	<br/>
 	<button id='fly'>Fly</button>
@@ -33,7 +33,7 @@
 	var pos=-1;
 	var flying=false;
 	
-	function init()
+	function initMAP()
 	{
 		$(".map-overlay-left-container").hide();
 		$(".map-overlay-right-container").hide();
@@ -129,11 +129,11 @@
 	document.getElementById('fly').addEventListener('click', function() {
 	    // Fly to Sudan 
 		pos=(pos+1)%featuresGEO.length;
+		var target = featuresGEO[pos].geometry.coordinates;
  
 	    map.flyTo({
 	        // These options control the ending camera position: centered at
 	        // the target, at zoom level 9, and north up.
-			var target = featuresGEO[pos].geometry.coordinates;
 	        center: target,
 	        zoom: 18,
 	        bearing: 0,
