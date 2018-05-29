@@ -24,9 +24,7 @@
 	
 	var title = document.getElementById('location-title');
 	var description = document.getElementById('location-description');
-	var dataGeo={
-	                "type": "FeatureCollection",
-	                "features": [{
+	var featuresGEO=[{
 	                    "type": "Feature",
 	                    "geometry": {
 	                        "type": "Point",
@@ -48,14 +46,7 @@
 	                        "icon": "marker",
 							"description":"The 1959 African Cup of Nations was the second edition of the Africa Cup of Nations, the football championship of Africa (CAF). It was hosted and won by the United Arab Republic, a short-lived confederation between Egypt and Syria. Only three teams participated: host team United Arab Republic, Sudan and Ethiopia. All three matches took place in Cairo."
 							             }
-	                }],
-	        "layout": {
-	            "icon-image": "{icon}-15",
-	            "text-field": "{title}",
-	            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-	            "text-offset": [0, 0.6],
-	            "text-anchor": "top"
-	        }};
+	                }];
 	
 	map.on('load', function () {
 
@@ -64,7 +55,16 @@
 	        "type": "symbol",
 	        "source": {
 	            "type": "geojson",
-	            "data": dataGeo
+	            "data": {
+	                "type": "FeatureCollection",
+	                "features": featuresGEO,
+	        "layout": {
+	            "icon-image": "{icon}-15",
+	            "text-field": "{title}",
+	            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+	            "text-offset": [0, 0.6],
+	            "text-anchor": "top"
+	        }}
 	    });
 	});
 	var pos=0;
