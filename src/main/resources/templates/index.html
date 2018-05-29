@@ -24,6 +24,8 @@
 	
 	var title = document.getElementById('location-title');
 	var description = document.getElementById('location-description');
+	var pos=-1;
+	var flying=false;
 	var featuresGEO=[{
 	                    "type": "Feature",
 	                    "geometry": {
@@ -69,16 +71,28 @@
 	        }}
 	    );
 	});
-	var pos=0;
-
 	
+
+	map.on('flystart', function(){
+	    flying = true;
+	});
+	map.on('flyend', function(){
+	    flying = false;
+	});
+	
+	map.on('moveend', function(e){
+	   if(!flying){
+		   $(".map-overlay-container").hide();
+   	    title.textContent=featuresGEO[pos].properties.title;
+   		description.textContent=featuresGEO[pos].properties.description;
+	   }
+	});
 	document.getElementById('fly').addEventListener('click', function() {
 	    // Fly to Sudan 
 		pos=(pos+1)%featuresGEO.length;
 	    var target = featuresGEO[pos].geometry.coordinates;
 
-	    title.textContent=featuresGEO[pos].properties.title;
-		description.textContent=featuresGEO[pos].properties.description;
+	    
 
 	    map.flyTo({
 	        // These options control the ending camera position: centered at
@@ -99,6 +113,8 @@
 	            return t;
 	        }
 	    });
+		
+		
 	});
 	</script>
 
