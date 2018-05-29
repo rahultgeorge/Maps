@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'index')}">
-<body>
+<body onload="loadComplete()">
 	<div id='map'></div>
 	<br/>
 	<button id='fly'>Fly</button>
@@ -32,31 +32,6 @@
 	var third=$(".Third");
 	var pos=-1;
 	var flying=false;
-	
-		
-	mapboxgl.accessToken = 'pk.eyJ1IjoicmFodWx0Z2VvcmdlIiwiYSI6ImNqaG5lODRjMjNwODIzNm5tcG1hNHV2MnUifQ.y_2bEvmsNFPRZoXqoZyxkg';
-	var map = new mapboxgl.Map({
-	container: 'map',
-	style: 'mapbox://styles/mapbox/streets-v10',
-	center: [0,0],
-	zoom: 1,
-	});
-
-	map.on('moveend', function(){
-		if(flying==true)
-	{	
-		$("div.map-overlay-left-container").show();
-		$("div.map-overlay-right-container").show();		
-		var feature=featuresGEO[pos];
-   	    title.textContent=feature.properties.title;
-   		description.textContent=feature.properties.description;
-		first.text(feature.properties.standings.First);
-		second.text(feature.properties.standings.Second);
-		third.text(feature.properties.standings.Third);
-		flying=false;
-	}
-	});
-	
 	//FETCHED from DB (USER INPUT)
 	var featuresGEO=[{
 	                    "type": "Feature",
@@ -98,6 +73,43 @@
 				];
 				
 				
+	
+		
+	mapboxgl.accessToken = 'pk.eyJ1IjoicmFodWx0Z2VvcmdlIiwiYSI6ImNqaG5lODRjMjNwODIzNm5tcG1hNHV2MnUifQ.y_2bEvmsNFPRZoXqoZyxkg';
+	
+	var map = new mapboxgl.Map({
+	container: 'map',
+	style: 'mapbox://styles/mapbox/streets-v10',
+	center: [0,0],
+	zoom: 1,
+	});
+	
+	function loadComplete()
+	{
+		//SPLASH SCREEN OR GENERAL INFO
+		setMap()
+	}
+
+    function setMap()
+	{
+	map.on('moveend', function(){
+		if(flying==true)
+	{	
+		$("div.map-overlay-left-container").show();
+		$("div.map-overlay-right-container").show();		
+		var feature=featuresGEO[pos];
+   	    title.textContent=feature.properties.title;
+   		description.textContent=feature.properties.description;
+		first.text(feature.properties.standings.First);
+		second.text(feature.properties.standings.Second);
+		third.text(feature.properties.standings.Third);
+		flying=false;
+	}
+	});
+	
+	
+				
+				
 	map.on('load', function () {
 
 	    map.addLayer({
@@ -119,7 +131,7 @@
 	        }}
 	    );
 	});
-	
+	}
 
 	document.getElementById('fly').addEventListener('click', function() {
 		$(".map-overlay-left-container").hide();
