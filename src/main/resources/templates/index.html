@@ -74,6 +74,7 @@
 	
 	document.getElementById('fly').addEventListener('click', function() {
 	    // Fly to Sudan 
+		pos=(pos+1)%featuresGEO.length;
 	    var target = featuresGEO[pos].geometry.coordinates;
 
 	    title.textContent=featuresGEO[pos].properties.title;
