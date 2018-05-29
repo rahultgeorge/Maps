@@ -5,11 +5,6 @@
 	<br/>
 	<button id='fly'>Fly</button>
 
-<div id="#intro">
-	<p>TESTING INTRO</p>
-	</div>
-	
-	
 	<div class='map-overlay-left-container'>
 	  <div class='map-overlay'>
 	    <h2 id='location-title'></h2>
@@ -50,14 +45,14 @@
 	map.on('moveend', function(){
 		if(flying==true)
 	{	
-		$(".map-overlay-left-container").show();
-		$(".map-overlay-right-container").show();		
+		$("div.map-overlay-left-container").show();
+		$("div.map-overlay-right-container").show();		
 		var feature=featuresGEO[pos];
    	    title.textContent=feature.properties.title;
    		description.textContent=feature.properties.description;
-		first.textContent=feature.properties.standings.First;
-		second.textContent=feature.properties.standings.Second;
-		third.textContent=feature.properties.standings.Third;
+		first.text(feature.properties.standings.First);
+		second.text(feature.properties.standings.Second);
+		third.text(feature.properties.standings.Third);
 		flying=false;
 	}
 	});

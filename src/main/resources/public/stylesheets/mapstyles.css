@@ -1,16 +1,7 @@
 body { margin:0; padding:0; }
 #map { position:absolute; top:0; bottom:0; width:100%; }
 
-#intro
-{
-	
-	position:absolute;
-	z-index: 2;
-	top: 40%;
-	right: 40%;
-	width:20%;
-	height:20%;
-}
+
 
 #fly {
       display: block;
@@ -26,7 +17,7 @@ body { margin:0; padding:0; }
       color: #fff;
       background: #ee8a65;
 	  top: 90%;
-	  left: 35%;
+	  left:40%;
   }
   
 .map-overlay-left-container {
