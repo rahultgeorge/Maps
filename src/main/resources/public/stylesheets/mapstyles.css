@@ -43,8 +43,8 @@ body { margin:0; padding:0; }
   .map-overlay-right-container {
         position: absolute;
         width: 25%;
-        top: 10;
-        left: 90%;
+        top: 0;
+        right:0;
         padding: 10px;
         z-index: 1;
     }
