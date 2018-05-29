@@ -41,7 +41,7 @@
 	                    "type": "Feature",
 	                    "geometry": {
 	                        "type": "Point",
-	                        "coordinates": [30.0450,31.2235]
+	                        "coordinates": [31.2235, 30.0450]
 	                    },
 	                    "properties": {
 	                        "title": "Second African Cup of Nations",
@@ -73,25 +73,12 @@
 	});
 	
 
-	map.on('flystart', function(){
-	    flying = true;
-	});
-	map.on('flyend', function(){
-	    flying = false;
-	});
-	
-	map.on('moveend', function(e){
-	   if(!flying){
-		   $(".map-overlay-container").hide();
-   	    title.textContent=featuresGEO[pos].properties.title;
-   		description.textContent=featuresGEO[pos].properties.description;
-	   }
-	});
 	document.getElementById('fly').addEventListener('click', function() {
 	    // Fly to Sudan 
 		pos=(pos+1)%featuresGEO.length;
 	    var target = featuresGEO[pos].geometry.coordinates;
-
+   	    title.textContent=featuresGEO[pos].properties.title;
+   		description.textContent=featuresGEO[pos].properties.description;
 	    
 
 	    map.flyTo({
