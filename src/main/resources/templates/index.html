@@ -24,8 +24,52 @@
 	
 	var title = document.getElementById('location-title');
 	var description = document.getElementById('location-description');
-	title="Sudan the first Cup of Nations";
-	description="The 1957 African Cup of Nations was the first edition of the Africa Cup of Nations, the football championship of Africa (CAF). It was hosted by Sudan, and three teams participated: Egypt, Sudan, and Ethiopia.";
+	
+	
+	map.on('load', function () {
+
+	    map.addLayer({
+	        "id": "points",
+	        "type": "symbol",
+	        "source": {
+	            "type": "geojson",
+	            "data": {
+	                "type": "FeatureCollection",
+	                "features": [{
+	                    "type": "Feature",
+	                    "geometry": {
+	                        "type": "Point",
+	                        "coordinates": [32.5159, 15.5984]
+	                    },
+	                    "properties": {
+	                        "title": "First African Cup of Nations",
+	                        "icon": "monument",
+							"description":"The 1957 African Cup of Nations was the first edition of the Africa Cup of Nations, the football championship of Africa (CAF). It was hosted by Sudan, and three teams participated: Egypt, Sudan, and Ethiopia."
+	                    }
+	                }, {
+	                    "type": "Feature",
+	                    "geometry": {
+	                        "type": "Point",
+	                        "coordinates": [30.0450,31.2235 ]
+	                    },
+	                    "properties": {
+	                        "title": "Second African Cup of Nations",
+	                        "icon": "harbor",
+							"description":"The 1959 African Cup of Nations was the second edition of the Africa Cup of Nations, the football championship of Africa (CAF). It was hosted and won by the United Arab Republic, a short-lived confederation between Egypt and Syria. Only three teams participated: host team United Arab Republic, Sudan and Ethiopia. All three matches took place in Cairo."
+							             }
+	                }]
+	            }
+	        },
+	        "layout": {
+	            "icon-image": "{icon}-15",
+	            "text-field": "{title}",
+	            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+	            "text-offset": [0, 0.6],
+	            "text-anchor": "top"
+	        }
+	    });
+	});
+
 	
 	document.getElementById('fly').addEventListener('click', function() {
 	    // Fly to Sudan 
