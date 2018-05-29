@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'index')}">
-<body onload="initMAP()">
+<body>
 	<div id='map'></div>
 	<br/>
 	<button id='fly'>Fly</button>
 
+<div id="#intro">
+	<p>TESTING INTRO</p>
+	</div>
+	
+	
 	<div class='map-overlay-left-container'>
 	  <div class='map-overlay'>
 	    <h2 id='location-title'></h2>
@@ -33,11 +38,6 @@
 	var pos=-1;
 	var flying=false;
 	
-	function initMAP()
-	{
-		$(".map-overlay-left-container").hide();
-		$(".map-overlay-right-container").hide();
-	}	
 		
 	mapboxgl.accessToken = 'pk.eyJ1IjoicmFodWx0Z2VvcmdlIiwiYSI6ImNqaG5lODRjMjNwODIzNm5tcG1hNHV2MnUifQ.y_2bEvmsNFPRZoXqoZyxkg';
 	var map = new mapboxgl.Map({
@@ -55,9 +55,9 @@
 		var feature=featuresGEO[pos];
    	    title.textContent=feature.properties.title;
    		description.textContent=feature.properties.description;
-		first.textContent=feature.standings.First;
-		second.textContent=feature.standings.Second;
-		third.textContent=feature.standings.Third;
+		first.textContent=feature.properties.standings.First;
+		second.textContent=feature.properties.standings.Second;
+		third.textContent=feature.properties.standings.Third;
 		flying=false;
 	}
 	});
@@ -127,7 +127,8 @@
 	
 
 	document.getElementById('fly').addEventListener('click', function() {
-	    // Fly to Sudan 
+		$(".map-overlay-left-container").hide();
+		$(".map-overlay-right-container").hide();	
 		pos=(pos+1)%featuresGEO.length;
 		var target = featuresGEO[pos].geometry.coordinates;
  
