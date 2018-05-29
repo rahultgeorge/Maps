@@ -57,7 +57,9 @@
 	            "type": "geojson",
 	            "data": {
 	                "type": "FeatureCollection",
-	                "features": featuresGEO,
+	                "features": featuresGEO
+				}
+			},
 	        "layout": {
 	            "icon-image": "{icon}-15",
 	            "text-field": "{title}",
@@ -65,17 +67,17 @@
 	            "text-offset": [0, 0.6],
 	            "text-anchor": "top"
 	        }}
-	    });
+	    );
 	});
 	var pos=0;
 
 	
 	document.getElementById('fly').addEventListener('click', function() {
 	    // Fly to Sudan 
-	    var target = GEOJSON.features[pos].geometry.coordinates;
+	    var target = featuresGEO[pos].geometry.coordinates;
 
-	    title.textContent=GEOJSON.features[pos].properties.title;
-		description.textContent=GEOJSON.features[pos].properties.description;
+	    title.textContent=featuresGEO[pos].properties.title;
+		description.textContent=featuresGEO[pos].properties.description;
 
 	    map.flyTo({
 	        // These options control the ending camera position: centered at
