@@ -53,7 +53,6 @@
 		$(".map-overlay-left-container").show();
 		$(".map-overlay-right-container").show();		
 		var feature=featuresGEO[pos];
-	    var target = feature.geometry.coordinates;
    	    title.textContent=feature.properties.title;
    		description.textContent=feature.properties.description;
 		first.textContent=feature.standings.First;
@@ -134,6 +133,7 @@
 	    map.flyTo({
 	        // These options control the ending camera position: centered at
 	        // the target, at zoom level 9, and north up.
+			var target = featuresGEO[pos].geometry.coordinates;
 	        center: target,
 	        zoom: 18,
 	        bearing: 0,
