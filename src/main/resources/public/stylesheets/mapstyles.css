@@ -17,7 +17,7 @@ body { margin:0; padding:0; }
 	  left: 35%;
   }
   
-.map-overlay-container {
+.map-overlay-left-container {
       position: absolute;
       width: 25%;
       top: 0;
@@ -38,3 +38,15 @@ body { margin:0; padding:0; }
 .map-overlay p {
       margin: 0 0 10px;
   }
+  
+  
+  .map-overlay-right-container {
+        position: absolute;
+        width: 25%;
+        top: 10;
+        left: 90%;
+        padding: 10px;
+        z-index: 1;
+    }
+
+  
