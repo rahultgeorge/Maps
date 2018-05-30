@@ -56,7 +56,7 @@ body { margin:0; padding:0; }
 	
     .map-overlay-center-container {
           position: absolute;
-  		display:none;
+  	
           width: 20%;
 		  height:20%;
           top: 40%;
