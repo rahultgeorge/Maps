@@ -84,6 +84,13 @@
 	zoom: 1,
 	});
 	
+	new mapboxgl.Popup()
+            .setLngLat([0,0])
+            .setHTML("<h1>Welcome</h1>")
+            .addTo(map);
+
+	
+	
 	function loadComplete()
 	{
 		//SPLASH SCREEN OR GENERAL INFO
