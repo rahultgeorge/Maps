@@ -79,15 +79,12 @@
 	
 	var map = new mapboxgl.Map({
 	container: 'map',
-	style: 'mapbox://styles/mapbox/streets-v10',
+	style: 'mapbox://styles/mapbox/satellite-streets-v9',
 	center: [0,0],
 	zoom: 1,
 	});
 	
-	new mapboxgl.Popup()
-            .setLngLat([0,0])
-            .setHTML("<h1>Welcome</h1>")
-            .addTo(map);
+
 
 	
 	
