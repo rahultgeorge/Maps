@@ -3,100 +3,100 @@
 <body>
 	<div id='map'></div>
 	<br/>
-    	<button id='fly'>Fly</button>
+	<button id='fly'>Fly</button>
 
-    	<div class='map-overlay-left-container'>
-    	  <div class='map-overlay'>
-    	    <h2 id='location-title'></h2>
-    	    <p id='location-description'></p>
-    	  </div>
-    	</div>
+	<div class='map-overlay-left-container'>
+		<div class='map-overlay'>
+			<h2 id='location-title'></h2>
+			<p id='location-description'></p>
+		</div>
+	</div>
 	
 	
-    	<div class='map-overlay-center-container'>
-				<div class="grayscale">
-    <h1>Coupe d'Afrique des Nations</h1>
-    <p>The Total Africa Cup of Nations, officially CAN (French: Coupe d'Afrique des Nations), also referred to as African Cup of Nations, or AFCON, is the main international association football competition in Africa. It is sanctioned by the Confederation of African Football (CAF) and was first held in 1957. Since 1968, it has been held every two years.</p>
+	<div class='map-overlay-center-container'>
+		<div class="grayscale">
+			<h1>Coupe d'Afrique des Nations</h1>
+			<p>The Total Africa Cup of Nations, officially CAN (French: Coupe d'Afrique des Nations), also referred to as African Cup of Nations, or AFCON, is the main international association football competition in Africa. It is sanctioned by the Confederation of African Football (CAF) and was first held in 1957. Since 1968, it has been held every two years.</p>
  
-    <button id='Start'>Start Tour</button>
-</div>
-    	</div>
+			<button id='Start'>Start Tour</button>
+		</div>
+	</div>
 		
 		
-    	<div class='map-overlay-right-container'>
-    	  <div class='map-overlay'>
-           <h2>Venues</h2>
-    	   <ul class="Standings">
-    		  <li class="First" />
-    		  <li class="Second" />
-    		  <li class="Third" />
-    	   </ul>
-    	  </div>
-    	</div>
+	<div class='map-overlay-right-container'>
+		<div class='map-overlay'>
+			<h2>Venues</h2>
+			<ul class="Standings">
+				<li class="First" />
+				<li class="Second" />
+				<li class="Third" />
+			</ul>
+		</div>
+	</div>
 	
-    	<div class='play'></div>
+	<div class='play'></div>
 	
 	
 	
 	<script>
-	var title = document.getElementById('location-title');
-	var description = document.getElementById('location-description');
-	var first=$(".First")
-	var second=$(".Second");
-	var third=$(".Third");
-	var pos=-1;
-	var flying=false;
-	var images=["1.jpg","2.jpg","3.jpg"];
-	var i=0;
-	//FETCHED from DB (USER INPUT)
-	var featuresGEO=[{
-	                    "type": "Feature",
-	                    "geometry": {
-	                        "type": "Point",
-	                        "coordinates": [32.5159,15.5984]
-	                    },
-	                    "properties": {
-	                        "title": "First African Cup of Nations",
-	                        "icon": "marker",
-							"description":"The 1957 African Cup of Nations was the first edition of the Africa Cup of Nations, the football championship of Africa (CAF). It was hosted by Sudan, and three teams participated: Egypt, Sudan, and Ethiopia.",
-							"standings":{"First":"Egypt","Second":"Ethiopia","Third":"Sudan"}
-	                    }
-	                }, {
-	                    "type": "Feature",
-	                    "geometry": {
-	                        "type": "Point",
-	                        "coordinates": [31.2235, 30.0450]
-	                    },
-	                    "properties": {
-	                        "title": "Second African Cup of Nations",
-	                        "icon": "marker",
-							"description":"The 1959 African Cup of Nations was the second edition of the Africa Cup of Nations, the football championship of Africa (CAF). It was hosted and won by the United Arab Republic, a short-lived confederation between Egypt and Syria. Only three teams participated: host team United Arab Republic, Sudan and Ethiopia. All three matches took place in Cairo.",
-							"standings":{"First":"United Arab Emirates","Second":"Sudan","Third":"Ethiopia"}
-							             }
-	                },{
-	                    "type": "Feature",
-	                    "geometry": {
-	                        "type": "Point",
-	                        "coordinates": [38.7568,9.0131]
-	                    },
-	                    "properties": {
-	                        "title": "Third African Cup of Nations",
-	                        "icon": "marker",
-							"description":"The 1962 African Cup of Nations was the third edition of the Africa Cup of Nations, the soccer championship of Africa (CAF). It was hosted by Ethiopia. Nine countries entered the competition, including the reigning champions Egypt, meaning for the first time a qualification tournament was required. The finals only included four teams. Egypt, as holders, and Ethiopia as hosts, qualified automatically meaning each needed to play only one game to reach the final. Ethiopia won the tournament for the first time after extra time in the final. This tournament has the highest goals-per-game average in Africa Cup of Nations tournaments.",
-							"standings":{"First":"Ethiopia","Second":"United Arab Emirates","Third":"Tunisia"}
-							             }
-	                }
-				];
+		var title = document.getElementById('location-title');
+		var description = document.getElementById('location-description');
+		var first=$(".First")
+		var second=$(".Second");
+		var third=$(".Third");
+		var pos=-1;
+		var flying=false;
+		var images=["1.jpg","2.jpg","3.jpeg"];
+		var i=0;
+		//FETCHED from DB (USER INPUT)
+		var featuresGEO=[{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [32.5159,15.5984]
+			},
+			"properties": {
+				"title": "First African Cup of Nations",
+				"icon": "marker",
+				"description":"The 1957 African Cup of Nations was the first edition of the Africa Cup of Nations, the football championship of Africa (CAF). It was hosted by Sudan, and three teams participated: Egypt, Sudan, and Ethiopia.",
+				"standings":{"First":"Egypt","Second":"Ethiopia","Third":"Sudan"}
+			}
+		}, {
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [31.2235, 30.0450]
+			},
+			"properties": {
+				"title": "Second African Cup of Nations",
+				"icon": "marker",
+				"description":"The 1959 African Cup of Nations was the second edition of the Africa Cup of Nations, the football championship of Africa (CAF). It was hosted and won by the United Arab Republic, a short-lived confederation between Egypt and Syria. Only three teams participated: host team United Arab Republic, Sudan and Ethiopia. All three matches took place in Cairo.",
+				"standings":{"First":"United Arab Emirates","Second":"Sudan","Third":"Ethiopia"}
+			}
+		},{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [38.7568,9.0131]
+			},
+			"properties": {
+				"title": "Third African Cup of Nations",
+				"icon": "marker",
+				"description":"The 1962 African Cup of Nations was the third edition of the Africa Cup of Nations, the soccer championship of Africa (CAF). It was hosted by Ethiopia. Nine countries entered the competition, including the reigning champions Egypt, meaning for the first time a qualification tournament was required. The finals only included four teams. Egypt, as holders, and Ethiopia as hosts, qualified automatically meaning each needed to play only one game to reach the final. Ethiopia won the tournament for the first time after extra time in the final. This tournament has the highest goals-per-game average in Africa Cup of Nations tournaments.",
+				"standings":{"First":"Ethiopia","Second":"United Arab Emirates","Third":"Tunisia"}
+			}
+		}
+	];
 				
-				
-				setInterval(function() {
-				      $(".grayscale").css('background-image', "url(" + images[i] + ")");
-					  i=(i+1)%images.length;
-				}, 1000)
+	//5 seconds
+	setInterval(function() {
+		$(".grayscale").css('background-image', "url(" + images[i] + ")");
+		i=(i+1)%images.length;
+	}, 5000)
 		
 	
-				mapboxgl.accessToken = 'pk.eyJ1IjoicmFodWx0Z2VvcmdlIiwiYSI6ImNqaG5lODRjMjNwODIzNm5tcG1hNHV2MnUifQ.y_2bEvmsNFPRZoXqoZyxkg';
-				var map=null;
+	mapboxgl.accessToken = 'pk.eyJ1IjoicmFodWx0Z2VvcmdlIiwiYSI6ImNqaG5lODRjMjNwODIzNm5tcG1hNHV2MnUifQ.y_2bEvmsNFPRZoXqoZyxkg';
+	var map=null;
 
 
 	
@@ -106,55 +106,55 @@
 		setMap();
 	});
 
-    function setMap()
+	function setMap()
 	{
 	
 		map = new mapboxgl.Map({
-		container: 'map',
-		style: 'mapbox://styles/mapbox/streets-v10',
-		center: [0,0],
-		zoom: 1,
+			container: 'map',
+			style: 'mapbox://styles/mapbox/streets-v10',
+			center: [0,0],
+			zoom: 1,
 		});
 		
-	map.on('moveend', function(){
-		if(flying==true)
-	{	
-		$("div.map-overlay-left-container").show();
-		$("div.map-overlay-right-container").show();		
-		var feature=featuresGEO[pos];
-   	    title.textContent=feature.properties.title;
-   		description.textContent=feature.properties.description;
-		first.text(feature.properties.standings.First);
-		second.text(feature.properties.standings.Second);
-		third.text(feature.properties.standings.Third);
-		flying=false;
-	}
-	});
+		map.on('moveend', function(){
+			if(flying==true)
+			{	
+				$("div.map-overlay-left-container").show();
+				$("div.map-overlay-right-container").show();		
+				var feature=featuresGEO[pos];
+				title.textContent=feature.properties.title;
+				description.textContent=feature.properties.description;
+				first.text(feature.properties.standings.First);
+				second.text(feature.properties.standings.Second);
+				third.text(feature.properties.standings.Third);
+				flying=false;
+			}
+		});
 	
 	
 				
 				
-	map.on('load', function () {
+		map.on('load', function () {
 
-	    map.addLayer({
-	        "id": "points",
-	        "type": "symbol",
-	        "source": {
-	            "type": "geojson",
-	            "data": {
-	                "type": "FeatureCollection",
-	                "features": featuresGEO
-				}
-			},
-	        "layout": {
-	            "icon-image": "{icon}-15",
-	            "text-field": "{title}",
-	            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-	            "text-offset": [0, 0.6],
-	            "text-anchor": "top"
-	        }}
-	    );
-	});
+			map.addLayer({
+				"id": "points",
+				"type": "symbol",
+				"source": {
+					"type": "geojson",
+					"data": {
+						"type": "FeatureCollection",
+						"features": featuresGEO
+					}
+				},
+				"layout": {
+					"icon-image": "{icon}-15",
+					"text-field": "{title}",
+					"text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+					"text-offset": [0, 0.6],
+					"text-anchor": "top"
+				}}
+			);
+		});
 	}
 
 	document.getElementById('fly').addEventListener('click', function() {
@@ -164,25 +164,25 @@
 		pos=(pos+1)%featuresGEO.length;
 		var target = featuresGEO[pos].geometry.coordinates;
  
-	    map.flyTo({
-	        // These options control the ending camera position: centered at
-	        // the target, at zoom level 9, and north up.
-	        center: target,
-	        zoom: 18,
-	        bearing: 0,
+		map.flyTo({
+			// These options control the ending camera position: centered at
+			// the target, at zoom level 9, and north up.
+			center: target,
+			zoom: 18,
+			bearing: 0,
 
-	        // These options control the flight curve, making it move
-	        // slowly and zoom out almost completely before starting
-	        // to pan.
-	        speed: 2, // make the flying slow
-	        curve: 1, // change the speed at which it zooms out
+			// These options control the flight curve, making it move
+			// slowly and zoom out almost completely before starting
+			// to pan.
+			speed: 2, // make the flying slow
+			curve: 1, // change the speed at which it zooms out
 
-	        // This can be any easing function: it takes a number between
-	        // 0 and 1 and returns another number between 0 and 1.
-	        easing: function (t) {
-	            return t;
-	        }
-	    });
+			// This can be any easing function: it takes a number between
+			// 0 and 1 and returns another number between 0 and 1.
+			easing: function (t) {
+				return t;
+			}
+		});
 		flying=true;		
 	});
 	

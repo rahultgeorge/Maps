@@ -20,98 +20,98 @@ body { margin:0; padding:0; }
 }
 
 #fly {
-      display: none;
-      position: absolute;
-      margin: 0px auto;
-      width: 20%;
-      height: 40px;
-      padding: 10px;
-      border: none;
-      border-radius: 3px;
-      font-size: 12px;
-      text-align: center;
-      color: #fff;
-      background: #ee8a65;
-	  top: 90%;
-	  left:40%;
-  }
+	display: none;
+	position: absolute;
+	margin: 0px auto;
+	width: 20%;
+	height: 40px;
+	padding: 10px;
+	border: none;
+	border-radius: 3px;
+	font-size: 12px;
+	text-align: center;
+	color: #fff;
+	background: #ee8a65;
+	top: 90%;
+	left:40%;
+}
   
 .map-overlay-left-container {
-      position: absolute;
-	  display:none;
-      width: 25%;
-      top: 0;
-      left: 0;
-      padding: 10px;
-      z-index: 1;
-  }
+	position: absolute;
+	display:none;
+	width: 25%;
+	top: 0;
+	left: 0;
+	padding: 10px;
+	z-index: 1;
+}
 
 .map-overlay {
-      font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-      background-color: #fff;
-      border-radius: 3px;
-      padding: 10px;
-      box-shadow:0 1px 2px rgba(0,0,0,0.20);
-  }
+	font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	background-color: #fff;
+	border-radius: 3px;
+	padding: 10px;
+	box-shadow:0 1px 2px rgba(0,0,0,0.20);
+}
 
 .map-overlay h2,
 .map-overlay p {
-      margin: 0 0 10px;
-  }
+	margin: 0 0 10px;
+}
   
   
-  .map-overlay-right-container {
-        position: absolute;
-		display:none;
-        width: 25%;
-        top: 0;
-        right:0;
-        padding: 10px;
-        z-index: 1;
-    }
-	.grayscale {
-        position: absolute;
-	      display:block;
-        width: 100%;
-	  height:100%;
-	  padding: 10px;
-	         background: url(../1.jpg);
-	         -webkit-filter: grayscale(100%);
-	         filter: gray;
-	     }
+.map-overlay-right-container {
+	position: absolute;
+	display:none;
+	width: 25%;
+	top: 0;
+	right:0;
+	padding: 10px;
+	z-index: 1;
+}
+.grayscale {
+	position: absolute;
+	display:block;
+	width: 100%;
+	height:100%;
+	padding: 10px;
+	background: url(../1.jpg);
+	-webkit-filter: grayscale(100%);
+	filter: gray;
+}
 	
-    .map-overlay-center-container {
-          position: absolute;
-  	      display:block;
-          width: 100%;
-		  height:100%;
-          
-          z-index: 1;
-      }
-	  .map-overlay-center-container h1
-	  {
-		  text-align:center;
-	  }
+.map-overlay-center-container {
+	position: absolute;
+	display:block;
+	width: 100%;
+	height:100%;
+	text-color:white;
+        
+}
+.map-overlay-center-container h1
+{
+	text-align:center;
+}
 .First
 {
     
-    background-color: #FFD700;
-    border-radius: 1px;
+	background-color: #FFD700;
+	border-radius: 1px;
 }	
 
 .Second
 { 
 	
-    background-color: #C0C0C0;
-    border-radius: 1px;
+	background-color: #C0C0C0;
+	border-radius: 1px;
 	
 }
 
 .Third
 {
     
-    background-color: #CD7F32;
-    border-radius: 1px;
+	background-color: #CD7F32;
+	border-radius: 1px;
 }
 
   
