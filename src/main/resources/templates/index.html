@@ -3,7 +3,37 @@
 <body>
 	<div id='map'></div>
 	<br/>
+    	<button id='fly'>Fly</button>
+
+    	<div class='map-overlay-left-container'>
+    	  <div class='map-overlay'>
+    	    <h2 id='location-title'></h2>
+    	    <p id='location-description'></p>
+    	  </div>
+    	</div>
 	
+	
+    	<div class='map-overlay-center-container'>
+				
+    <h1>Coupe d'Afrique des Nations</h1>
+    <p>The Total Africa Cup of Nations, officially CAN (French: Coupe d'Afrique des Nations), also referred to as African Cup of Nations, or AFCON, is the main international association football competition in Africa. It is sanctioned by the Confederation of African Football (CAF) and was first held in 1957. Since 1968, it has been held every two years.</p>
+    <div class="slider">
+	
+    </div>
+    <button id='Start'>Start Tour</button>
+    	</div>
+    	<div class='map-overlay-right-container'>
+    	  <div class='map-overlay'>
+           <h2>Venues</h2>
+    	   <ul class="Standings">
+    		  <li class="First" />
+    		  <li class="Second" />
+    		  <li class="Third" />
+    	   </ul>
+    	  </div>
+    	</div>
+	
+    	<div class='play'></div>
 	
 	
 	
@@ -58,15 +88,9 @@
 				
 	
 		
-	mapboxgl.accessToken = 'pk.eyJ1IjoicmFodWx0Z2VvcmdlIiwiYSI6ImNqaG5lODRjMjNwODIzNm5tcG1hNHV2MnUifQ.y_2bEvmsNFPRZoXqoZyxkg';
 	
-	var map = new mapboxgl.Map({
-	container: 'map',
-	style: 'mapbox://styles/mapbox/streets-v10',
-	center: [0,0],
-	zoom: 1,
-	});
-	
+				mapboxgl.accessToken = 'pk.eyJ1IjoicmFodWx0Z2VvcmdlIiwiYSI6ImNqaG5lODRjMjNwODIzNm5tcG1hNHV2MnUifQ.y_2bEvmsNFPRZoXqoZyxkg';
+				var map=null;
 
 
 	
@@ -78,6 +102,14 @@
 
     function setMap()
 	{
+	
+		map = new mapboxgl.Map({
+		container: 'map',
+		style: 'mapbox://styles/mapbox/streets-v10',
+		center: [0,0],
+		zoom: 1,
+		});
+		
 	map.on('moveend', function(){
 		if(flying==true)
 	{	
