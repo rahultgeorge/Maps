@@ -46,6 +46,8 @@
 	var third=$(".Third");
 	var pos=-1;
 	var flying=false;
+	var images=["1.jpg","2.jpg","3.jpg"];
+	var i=0;
 	//FETCHED from DB (USER INPUT)
 	var featuresGEO=[{
 	                    "type": "Feature",
@@ -86,10 +88,9 @@
 	                }
 				];
 				
-				var images=["1.jpg","2.jpg","3.jpg"];
-				var i=0;
+				
 				setInterval(function() {
-				      $(".grayscale").style.backgroundImage = "url(" + images[i] + ")";
+				      $(".grayscale").css('background-image', "url(" + images[i] + ")");
 					  i=(i+1)%images.length;
 				}, 1000)
 		
