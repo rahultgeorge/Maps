@@ -57,10 +57,9 @@ body { margin:0; padding:0; }
     .map-overlay-center-container {
           position: absolute;
   	
-          width: 20%;
-		  height:20%;
-          top: 40%;
-          right:40%;
+          width: 80%;
+		  height:80%;
+          background-color:#C0C0C0;
           padding: 10px;
           z-index: 1;
       }
