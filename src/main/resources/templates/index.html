@@ -18,7 +18,12 @@
     <h1>Coupe d'Afrique des Nations</h1>
     <p>The Total Africa Cup of Nations, officially CAN (French: Coupe d'Afrique des Nations), also referred to as African Cup of Nations, or AFCON, is the main international association football competition in Africa. It is sanctioned by the Confederation of African Football (CAF) and was first held in 1957. Since 1968, it has been held every two years.</p>
     <div class="slider">
-	
+	<img class="slide" src="../lang-logo.png">
+	<img class="slide" src="img_lights.jpg">
+	<img class="slide" src="img_mountains.jpg">
+	<img class="slide" src="img_forest.jpg">
+	<button class="backward" onclick="plusDivs(-1)">&#10094;</button>
+	  <button class="forward" onclick="plusDivs(1)">&#10095;</button>
     </div>
     <button id='Start'>Start Tour</button>
     	</div>
@@ -50,10 +55,10 @@
 	                    "type": "Feature",
 	                    "geometry": {
 	                        "type": "Point",
-	                        "coordinates": [15.5984,32.5159]
+	                        "coordinates": [32.5159,15.5984]
 	                    },
 	                    "properties": {
-	                        "title": "",
+	                        "title": "First African Cup of Nations",
 	                        "icon": "marker",
 							"description":"The 1957 African Cup of Nations was the first edition of the Africa Cup of Nations, the football championship of Africa (CAF). It was hosted by Sudan, and three teams participated: Egypt, Sudan, and Ethiopia.",
 							"standings":{"First":"Egypt","Second":"Ethiopia","Third":"Sudan"}
@@ -85,7 +90,23 @@
 	                }
 				];
 				
-				
+				var slideIndex = 1;
+				showDivs(slideIndex);
+
+				function plusDivs(n) {
+				  showDivs(slideIndex += n);
+				}
+
+				function showDivs(n) {
+				  var i;
+				  var x = document.getElementsByClassName("slide");
+				  if (n > x.length) {slideIndex = 1}    
+				  if (n < 1) {slideIndex = x.length}
+				  for (i = 0; i < x.length; i++) {
+				     x[i].style.display = "none";  
+				  }
+				  x[slideIndex-1].style.display = "block";  
+				}
 	
 		
 	
