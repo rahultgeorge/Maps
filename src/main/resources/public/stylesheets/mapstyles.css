@@ -58,11 +58,17 @@ body { margin:0; padding:0; }
           position: absolute;
   	      display:block;
           width: 80%;
+		  left:10%;
 		  height:80%;
+		  top:10%;
           background-color:white;
           padding: 10px;
           z-index: 1;
       }
+	  .map-overlay-center-container h1
+	  {
+		  text-align:center;
+	  }
 .First
 {
     
