@@ -14,14 +14,15 @@
 	
 	
     	<div class='map-overlay-center-container'>
-				
+				<div class="grayscale">
     <h1>Coupe d'Afrique des Nations</h1>
     <p>The Total Africa Cup of Nations, officially CAN (French: Coupe d'Afrique des Nations), also referred to as African Cup of Nations, or AFCON, is the main international association football competition in Africa. It is sanctioned by the Confederation of African Football (CAF) and was first held in 1957. Since 1968, it has been held every two years.</p>
  
-	<button class="backward" onclick="plusDivs(-1)">&#10094;</button>
-	  <button class="forward" onclick="plusDivs(1)">&#10095;</button>
     <button id='Start'>Start Tour</button>
+</div>
     	</div>
+		
+		
     	<div class='map-overlay-right-container'>
     	  <div class='map-overlay'>
            <h2>Venues</h2>
@@ -85,20 +86,12 @@
 	                }
 				];
 				
-				var slideIndex = 1;
-				showDivs(slideIndex);
-
-				function plusDivs(n) {
-				  showDivs(slideIndex += n);
-				}
-
-				function showDivs(n) {
-				  var i;
-				  var x = document.getElementsByClassName("slide");
-				  
-				  x[slideIndex-1].style.background_image = (slideIndex%3+1)+".png";  
-				}
-	
+				var images=["1.jpg","2.jpg","3.jpg"];
+				var i=0;
+				setInterval(function() {
+				      $(".grayscale").style.backgroundImage = "url(" + images[i] + ")";
+					  i=(i+1)%images.length;
+				}, 1000)
 		
 	
 				mapboxgl.accessToken = 'pk.eyJ1IjoicmFodWx0Z2VvcmdlIiwiYSI6ImNqaG5lODRjMjNwODIzNm5tcG1hNHV2MnUifQ.y_2bEvmsNFPRZoXqoZyxkg';
