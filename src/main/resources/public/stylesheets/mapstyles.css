@@ -97,6 +97,10 @@ p{
 	z-index: 1;
 	
 }
+i{
+	font-size:48px;
+	color:blue;
+}
 .map-overlay-center-container h1
 {
 	text-align:center;
