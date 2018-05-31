@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'index')}">
-<body onload="loadComplete()">
+<body>
 	<div id='map'></div>
 	<br/>
 	<button id='fly'>Fly</button>
@@ -12,6 +12,16 @@
 	  </div>
 	</div>
 	
+	<button id='Start'>Start Tour</button>
+	<div class='map-overlay-center-container'>
+				
+<h1>Coupe d'Afrique des Nations</h1>
+<p>The Total Africa Cup of Nations, officially CAN (French: Coupe d'Afrique des Nations), also referred to as African Cup of Nations, or AFCON, is the main international association football competition in Africa. It is sanctioned by the Confederation of African Football (CAF) and was first held in 1957. Since 1968, it has been held every two years. The title holders at the time of a FIFA Confederations Cup qualify for that competition.</p>
+<div class="slider">
+	
+</div>
+
+	</div>
 	<div class='map-overlay-right-container'>
 	  <div class='map-overlay'>
        <h2>Standings</h2>
@@ -23,6 +33,7 @@
 	  </div>
 	</div>
 	
+	<div class='play'></div>
 	
 	
 	
@@ -39,15 +50,15 @@
 	                    "type": "Feature",
 	                    "geometry": {
 	                        "type": "Point",
-	                        "coordinates": [37.5537,55.7158]
+	                        "coordinates": [15.5984,32.5159]
 	                    },
-						
 	                    "properties": {
-	                        "title": "FIFA 18",
+	                        "title": "",
 	                        "icon": "marker",
-							"description":"The"
-	                    }}
-						, {
+							"description":"The 1957 African Cup of Nations was the first edition of the Africa Cup of Nations, the football championship of Africa (CAF). It was hosted by Sudan, and three teams participated: Egypt, Sudan, and Ethiopia.",
+							"standings":{"First":"Egypt","Second":"Ethiopia","Third":"Sudan"}
+	                    }
+	                }, {
 	                    "type": "Feature",
 	                    "geometry": {
 	                        "type": "Point",
@@ -81,7 +92,7 @@
 	
 	var map = new mapboxgl.Map({
 	container: 'map',
-	style: 'mapbox://styles/mapbox/satellite-v9',
+	style: 'mapbox://styles/mapbox/streets-v9',
 	center: [0,0],
 	zoom: 1,
 	});
@@ -89,10 +100,9 @@
 
 
 	
-	
-	function loadComplete()
-	{
+	$("#Start").click(function(){
 		//SPLASH SCREEN OR GENERAL INFO
+		$("#fly").show();
 		setMap()
 	}
 
@@ -133,7 +143,8 @@
 	            "text-field": "{title}",
 	            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
 	            "text-offset": [0, 0.6],
-	            "text-anchor": "top"
+	            "text-anchor": "top",
+				"text-color":"white"
 	        }}
 	    );
 	});
@@ -142,6 +153,7 @@
 	document.getElementById('fly').addEventListener('click', function() {
 		$(".map-overlay-left-container").hide();
 		$(".map-overlay-right-container").hide();	
+	
 		pos=(pos+1)%featuresGEO.length;
 		var target = featuresGEO[pos].geometry.coordinates;
  
