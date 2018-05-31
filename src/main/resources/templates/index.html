@@ -14,27 +14,26 @@
 	
 	
 	<div class='map-overlay-center-container'>
-		<div class="grayscale">
+		
 			<h1>Coupe d'Afrique des Nations</h1>
 			<p>The Total Africa Cup of Nations, officially CAN (French: Coupe d'Afrique des Nations), also referred to as African Cup of Nations, or AFCON, is the main international association football competition in Africa. It is sanctioned by the Confederation of African Football (CAF) and was first held in 1957. Since 1968, it has been held every two years.</p>
  
 			<button id='Start'>Start Tour</button>
 		</div>
-	</div>
 		
 		
 	<div class='map-overlay-right-container'>
 		<div class='map-overlay'>
-			<h2>Venues</h2>
-			<ul class="Standings">
+			<h2>Standings</h2>
+			<ol class="Standings">
 				<li class="First" />
 				<li class="Second" />
 				<li class="Third" />
-			</ul>
+			</ol>
 		</div>
 	</div>
 	
-	<div class='play'></div>
+	<div class='View'><button id='Look'><i class="glyphicon glyphicon-play-circle"></i>Play</button></div>
 	
 	
 	
@@ -48,7 +47,7 @@
 		var flying=false;
 		var images=["1.jpg","2.jpg","3.jpeg"];
 		var i=0;
-		//FETCHED from DB (USER INPUT)
+		//FETCHED from DB (CAN BE USER INPUT)
 		var featuresGEO=[{
 			"type": "Feature",
 			"geometry": {
@@ -88,9 +87,9 @@
 		}
 	];
 				
-	//5 seconds
+	//10 seconds
 	setInterval(function() {
-		$(".grayscale").css('background-image', "url(" + images[i] + ")");
+		$("div.map-overlay-center-container").css('background-image', "url(" + images[i] + ")");
 		i=(i+1)%images.length;
 	}, 10000)
 		
@@ -104,6 +103,10 @@
 		$("div.map-overlay-center-container").hide();
 		$("#fly").show();
 		setMap();
+	});
+	
+	$("#Look").click(function(){
+		
 	});
 
 	function setMap()
@@ -119,8 +122,9 @@
 		map.on('moveend', function(){
 			if(flying==true)
 			{	
-				$("div.map-overlay-left-container").show();
-				$("div.map-overlay-right-container").show();		
+				$(".map-overlay-left-container").show();
+				$(".map-overlay-right-container").show();
+				$("#Look").show();		
 				var feature=featuresGEO[pos];
 				title.textContent=feature.properties.title;
 				description.textContent=feature.properties.description;
@@ -160,7 +164,7 @@
 	document.getElementById('fly').addEventListener('click', function() {
 		$(".map-overlay-left-container").hide();
 		$(".map-overlay-right-container").hide();	
-	
+		$("#Look").hide();	
 		pos=(pos+1)%featuresGEO.length;
 		var target = featuresGEO[pos].geometry.coordinates;
  
