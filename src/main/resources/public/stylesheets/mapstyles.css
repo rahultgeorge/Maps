@@ -2,11 +2,16 @@ body { margin:0; padding:0; }
 #map { position:absolute; top:0; bottom:0; width:100%;}
 
 .forward{
-	position:absolute;top:50%;left:0%;transform:translate(0%,-50%);-ms-transform:translate(-0%,-50%);
+	position:absolute;top:50%;right:0%;transform:translate(0%,-50%);-ms-transform:translate(-0%,-50%);
 }
 	
 .backward{
-	position:absolute;top:50%;right:0%;transform:translate(0%,-50%);-ms-transform:translate(0%,-50%);
+	position:absolute;top:50%;left:0%;transform:translate(0%,-50%);-ms-transform:translate(0%,-50%);
+}
+
+.slide
+{
+	width:100%;
 }
 
 #fly {
@@ -67,7 +72,7 @@ body { margin:0; padding:0; }
 		  left:10%;
 		  height:80%;
 		  top:10%;
-          background-color:grey;
+          background-color:../lang-logo.png;
           padding: 10px;
           z-index: 1;
       }
