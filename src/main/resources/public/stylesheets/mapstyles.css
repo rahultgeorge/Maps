@@ -1,5 +1,5 @@
 body { margin:0; padding:0; }
-#map { position:absolute; top:0; bottom:0; width:100%; }
+#map { position:absolute; top:0; bottom:0; width:100%; display:none; }
 
 
 
@@ -56,10 +56,10 @@ body { margin:0; padding:0; }
 	
     .map-overlay-center-container {
           position: absolute;
-  	
+  	      display:none;
           width: 80%;
 		  height:80%;
-          background-color:#C0C0C0;
+          background-color:white;
           padding: 10px;
           z-index: 1;
       }
