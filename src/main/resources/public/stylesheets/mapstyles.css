@@ -166,6 +166,9 @@ i{
     cursor: pointer;
 }
 
-
+.container
+{
+	display:none;
+}
 
   

@@ -47,6 +47,12 @@
 	  <img class="Slides"  />
 	  </div>
 	
+	<div class="container">
+	  <h1 value="${records}" />
+	  <ul th:each="record : ${records}">
+	    <li class="feature" th:text="${record}"/>
+	  </ul>
+	</div>
 	<script>
 		var title = document.getElementById('location-title');
 		var description = document.getElementById('location-description');
@@ -61,9 +67,8 @@
 		var i=0;
 		var modal = document.getElementById('ViewPics');
 		//FETCHED from DB (CAN BE USER INPUT)
-		var featuresDB=${records};
 		
-		console.log(featuresDB);
+		console.log();
 		var featuresGEO=[{
 			"type": "Feature",
 			"geometry": {
