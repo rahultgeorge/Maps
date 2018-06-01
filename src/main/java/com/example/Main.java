@@ -78,7 +78,21 @@ public class Main {
   
  
   void fetchData () {
+      try (Connection connection = dataSource.getConnection()) {
+        Statement stmt = connection.createStatement();
+      
+        ResultSet rs = stmt.executeQuery("SELECT feature FROM features");
 
+        ArrayList<String> output = new ArrayList<String>();
+        while (rs.next()) {
+          output.add("Read from DB: " + rs.getString("feature"));
+        }
+
+        model.put("records", output);
+       
+      } catch (Exception e) {
+		  System.out.println("EX");
+      }
   }
 
   @Bean
