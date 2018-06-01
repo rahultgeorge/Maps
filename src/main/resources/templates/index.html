@@ -35,7 +35,13 @@
 	
 	<div class='View'><button id='Look'><i class="fa fa-play"></i></button></div>
 	
-	
+	<div id="ViewPics" class="modal">
+
+	  <!-- Modal content -->
+	  <div class="modal-content">
+	    <span class="close">&times;</span>
+	    <p>Some text in the Modal..</p>
+	  </div>
 	
 	<script>
 		var title = document.getElementById('location-title');
@@ -106,7 +112,12 @@
 	});
 	
 	$("#Look").click(function(){
+		$("#ViewPics").css("display","block");
 		
+	});
+	
+	$(".close").click(function(){
+		$("#ViewPics").css("display","none");
 	});
 
 	function setMap()
