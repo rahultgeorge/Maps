@@ -70,7 +70,8 @@
 		var featuresDB=[];
 		for (i=0;i< $(".feature").length;i++)
 		{
-			featuresDB.push($(".feature")[i].innerText);
+			var featuresText=$(".feature")[i].innerText;
+			featuresDB.push(JSON.parse(featuresText));
 		}
 		console.log(featuresDB);
 		var featuresGEO=[{
