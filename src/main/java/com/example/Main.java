@@ -85,7 +85,7 @@ public class Main {
 
         ArrayList<String> output = new ArrayList<String>();
         while (rs.next()) {
-          output.add("Read from DB: " + rs.getString("feature"));
+          output.add(rs.getString("feature"));
         }
 
         model.put("records", output);
