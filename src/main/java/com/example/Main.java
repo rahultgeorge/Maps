@@ -25,6 +25,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.json.simple.*;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -44,12 +45,14 @@ public class Main {
   @Autowired
   private DataSource dataSource;
 
+  
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
   }
 
   @RequestMapping("/")
   String index() {
+	  fetchData();
     return "index";
   }
 
@@ -74,23 +77,36 @@ public class Main {
     }
   }
   
-  @RequestMapping("/init")
-  String db_feature(Map<String, Object> model) {
+ 
+  void fetchData () {
     try (Connection connection = dataSource.getConnection()) {
 
       Statement stmt = connection.createStatement();
-      ResultSet rs = stmt.executeQuery("SELECT title FROM features");
+      ResultSet rs = stmt.executeQuery("SELECT * FROM features");
 
-      ArrayList<String> output = new ArrayList<String>();
+
+	  JSONArray featuresDB=new JSONArray();
+	  JSONObject feature,geometry,properties;
+	  int[] coordinates=new int[2];
       while (rs.next()) {
-        output.add("Read from DB: " + rs.getString("title"));
+		  feature=new JSONObject();
+		  geometry=new JSONObject();
+		  properties=new JSONObject();
+		  coordinates=new int[2];
+		  feature.put("type","feature");
+		  geometry.put("type",rs.getString("geometry_type"));
+		  coordinates[0]=rs.getInt("coordinate_1");
+		  coordinates[1]=rs.getInt("coordinate_2");
+		  geometry.put("coordinates",coordinates);
+		  feature.put("geometry","geometry");
+		  
       }
 
-      model.put("records", output);
-      return "db";
+      model.put("featuresDB", fearuresDB);
+      
     } catch (Exception e) {
-      model.put("message", e.getMessage());
-      return "error";
+      
+		System.out.println("Exception"+e.Message);
     }
   }
 
