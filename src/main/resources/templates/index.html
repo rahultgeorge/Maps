@@ -36,7 +36,6 @@
 	<div class='View'><button id='Look'><i class="fa fa-play"></i></button></div>
 	
 	<div id="ViewPics" class="modal">
-
 	  <!-- Modal content -->
 	  <div class="modal-content">
 	    <span class="close">&times;</span>
@@ -95,7 +94,7 @@
 				
 	//10 seconds
 	setInterval(function() {
-		$("div.map-overlay-center-container").css('background-image', "url(" + images[i] + ")");
+		$(".map-overlay-center-container").css('background-image', "url(" + images[i] + ")");
 		i=(i+1)%images.length;
 	}, 10000)
 		
@@ -103,17 +102,15 @@
 	mapboxgl.accessToken = 'pk.eyJ1IjoicmFodWx0Z2VvcmdlIiwiYSI6ImNqaG5lODRjMjNwODIzNm5tcG1hNHV2MnUifQ.y_2bEvmsNFPRZoXqoZyxkg';
 	var map=null;
 
-
-	
 	$("#Start").click(function(){
-		$("div.map-overlay-center-container").hide();
+		clearInterval();
+		$(".map-overlay-center-container").hide();
 		$("#fly").show();
 		setMap();
 	});
 	
 	$("#Look").click(function(){
-		$("#ViewPics").css("display","block");
-		
+		$("#ViewPics").css("display","block");	
 	});
 	
 	$(".close").click(function(){
