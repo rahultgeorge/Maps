@@ -79,35 +79,7 @@ public class Main {
   
  
   void fetchData () {
-    try (Connection connection = dataSource.getConnection()) {
 
-      Statement stmt = connection.createStatement();
-      ResultSet rs = stmt.executeQuery("SELECT * FROM features");
-
-
-	  JSONArray featuresDB=new JSONArray();
-	  JSONObject feature,geometry,properties;
-	  int[] coordinates=new int[2];
-      while (rs.next()) {
-		  feature=new JSONObject();
-		  geometry=new JSONObject();
-		  properties=new JSONObject();
-		  coordinates=new int[2];
-		  feature.put("type","feature");
-		  geometry.put("type",rs.getString("geometry_type"));
-		  coordinates[0]=rs.getInt("coordinate_1");
-		  coordinates[1]=rs.getInt("coordinate_2");
-		  geometry.put("coordinates",coordinates);
-		  feature.put("geometry","geometry");
-		  
-      }
-
-      model.put("featuresDB", fearuresDB);
-      
-    } catch (Exception e) {
-      
-		System.out.println("Exception");
-    }
   }
 
   @Bean
