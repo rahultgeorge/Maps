@@ -195,7 +195,7 @@
 				$(".map-overlay-left-container").show();
 				$(".map-overlay-right-container").show();
 				$(".View").show();		
-				var feature=featuresGEO[pos];
+				var feature=featuresDB[pos];
 				images=feature.properties.images;
 			    for (i = 0; i < x.length; i++) {
 			        x[i].src = feature.properties.images[i]; 
@@ -221,7 +221,7 @@
 					"type": "geojson",
 					"data": {
 						"type": "FeatureCollection",
-						"features": featuresGEO
+						"features": featuresDB
 					}
 				},
 				"layout": {
@@ -239,8 +239,8 @@
 		$(".map-overlay-left-container").hide();
 		$(".map-overlay-right-container").hide();	
 		$(".View").hide();	
-		pos=(pos+1)%featuresGEO.length;
-		var target = featuresGEO[pos].geometry.coordinates;
+		pos=(pos+1)%featuresDB.length;
+		var target = featuresDB[pos].geometry.coordinates;
  
 		map.flyTo({
 			// These options control the ending camera position: centered at
