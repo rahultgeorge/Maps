@@ -75,7 +75,7 @@ public class Main {
   }
   
   @RequestMapping("/init")
-  String db(Map<String, Object> model) {
+  String db_feature(Map<String, Object> model) {
     try (Connection connection = dataSource.getConnection()) {
 
       Statement stmt = connection.createStatement();
