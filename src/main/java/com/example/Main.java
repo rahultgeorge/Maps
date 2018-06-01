@@ -73,6 +73,26 @@ public class Main {
       return "error";
     }
   }
+  
+  @RequestMapping("/init")
+  String db(Map<String, Object> model) {
+    try (Connection connection = dataSource.getConnection()) {
+
+      Statement stmt = connection.createStatement();
+      ResultSet rs = stmt.executeQuery("SELECT title FROM features");
+
+      ArrayList<String> output = new ArrayList<String>();
+      while (rs.next()) {
+        output.add("Read from DB: " + rs.getString("title"));
+      }
+
+      model.put("records", output);
+      return "db";
+    } catch (Exception e) {
+      model.put("message", e.getMessage());
+      return "error";
+    }
+  }
 
   @Bean
   public DataSource dataSource() throws SQLException {

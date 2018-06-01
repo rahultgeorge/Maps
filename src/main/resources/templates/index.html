@@ -148,7 +148,9 @@
 	});
 	
 	$("#Look").click(function(){
-		$("#ViewPics").css("display","block");	
+		$("#ViewPics").css("display","block");
+		   var x = document.getElementsByClassName("Slides");
+		   x[slideIndex].style.display = "block"; 	
 	});
 	
 	$(".close").click(function(){
