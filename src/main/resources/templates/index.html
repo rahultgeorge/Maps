@@ -61,11 +61,8 @@
 		var i=0;
 		var modal = document.getElementById('ViewPics');
 		//FETCHED from DB (CAN BE USER INPUT)
-		var featuresDB=[];
-		${records}.foreach(function(record,index)
-		{
-			feauturesDB.push(record);
-		});
+		var featuresDB=${records};
+		
 		console.log(featuresDB);
 		var featuresGEO=[{
 			"type": "Feature",
