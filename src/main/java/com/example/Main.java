@@ -106,7 +106,7 @@ public class Main {
       
     } catch (Exception e) {
       
-		System.out.println("Exception"+e.Message);
+		System.out.println("Exception");
     }
   }
 
