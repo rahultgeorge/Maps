@@ -33,13 +33,17 @@
 		</div>
 	</div>
 	
-	<div class='View'><button id='Look'><i class="fa fa-play"></i></button></div>
+	<div class='View'><button id='Look'><i class="fa fa-info fa-3x"></i></button></div>
 	
 	<div id="ViewPics" class="modal">
 	  <!-- Modal content -->
 	  <div class="modal-content">
 	    <span class="close">&times;</span>
-	    <p>Some text in the Modal..</p>
+		<button class="backward" onclick="plusDivs(-1)">&#10094;</button>
+		<button class="forward" onclick="plusDivs(+1)">&#10095;</button>
+	  <img class="Slides"  />
+	  <img class="Slides"  />
+	  <img class="Slides"  />
 	  </div>
 	
 	<script>
@@ -50,7 +54,9 @@
 		var third=$(".Third");
 		var pos=-1;
 		var flying=false;
-		var images=["1.jpg","2.jpg","3.jpeg"];
+		var bg_images=["1.jpg","2.jpg","3.jpeg"];
+		var slideIndex = 1;
+		var images=null;
 		var i=0;
 		//FETCHED from DB (CAN BE USER INPUT)
 		var featuresGEO=[{
@@ -63,7 +69,8 @@
 				"title": "First African Cup of Nations",
 				"icon": "marker",
 				"description":"The 1957 African Cup of Nations was the first edition of the Africa Cup of Nations, the football championship of Africa (CAF). It was hosted by Sudan, and three teams participated: Egypt, Sudan, and Ethiopia.",
-				"standings":{"First":"Egypt","Second":"Ethiopia","Third":"Sudan"}
+				"standings":{"First":"Egypt","Second":"Ethiopia","Third":"Sudan"},
+				"images":["1957_1.jpg","1957_2.jpg","1957_3.jpg"]
 			}
 		}, {
 			"type": "Feature",
@@ -75,7 +82,8 @@
 				"title": "Second African Cup of Nations",
 				"icon": "marker",
 				"description":"The 1959 African Cup of Nations was the second edition of the Africa Cup of Nations, the football championship of Africa (CAF). It was hosted and won by the United Arab Republic, a short-lived confederation between Egypt and Syria. Only three teams participated: host team United Arab Republic, Sudan and Ethiopia. All three matches took place in Cairo.",
-				"standings":{"First":"United Arab Emirates","Second":"Sudan","Third":"Ethiopia"}
+				"standings":{"First":"United Arab Emirates","Second":"Sudan","Third":"Ethiopia"},
+				"images":["1959_1.jpg","1959_2.jpg","1959_3.jpg"]
 			}
 		},{
 			"type": "Feature",
@@ -87,7 +95,8 @@
 				"title": "Third African Cup of Nations",
 				"icon": "marker",
 				"description":"The 1962 African Cup of Nations was the third edition of the Africa Cup of Nations, the soccer championship of Africa (CAF). It was hosted by Ethiopia. Nine countries entered the competition, including the reigning champions Egypt, meaning for the first time a qualification tournament was required. The finals only included four teams. Egypt, as holders, and Ethiopia as hosts, qualified automatically meaning each needed to play only one game to reach the final. Ethiopia won the tournament for the first time after extra time in the final. This tournament has the highest goals-per-game average in Africa Cup of Nations tournaments.",
-				"standings":{"First":"Ethiopia","Second":"United Arab Emirates","Third":"Tunisia"}
+				"standings":{"First":"Ethiopia","Second":"United Arab Emirates","Third":"Tunisia"},
+				"images":["1962_1.jpg","1962_2.jpg","1962_3.jpg"]
 			}
 		}
 	];
@@ -95,8 +104,25 @@
 	//10 seconds
 	setInterval(function() {
 		$(".map-overlay-center-container").css('background-image', "url(" + images[i] + ")");
-		i=(i+1)%images.length;
+		i=(i+1)%bg_images.length;
 	}, 10000)
+		
+	
+	showDivs(slideIndex);
+
+	function plusDivs(n) {
+	    showDivs(slideIndex+n);
+	}
+
+	function showDivs(n) {
+	    var i;
+	    var x = document.getElementsByClassName("Slides");
+		slideIndex=n%images.length;
+	    for (i = 0; i < x.length; i++) {
+	        x[i].style.display = "none"; 
+	    }
+	    x[slideIndex].style.display = "block"; 
+	}
 		
 	
 	mapboxgl.accessToken = 'pk.eyJ1IjoicmFodWx0Z2VvcmdlIiwiYSI6ImNqaG5lODRjMjNwODIzNm5tcG1hNHV2MnUifQ.y_2bEvmsNFPRZoXqoZyxkg';
@@ -130,15 +156,21 @@
 		map.on('moveend', function(){
 			if(flying==true)
 			{	
+			    var i;
+			    var x = document.getElementsByClassName("Slides");
 				$(".map-overlay-left-container").show();
 				$(".map-overlay-right-container").show();
 				$("#Look").show();		
 				var feature=featuresGEO[pos];
+			    for (i = 0; i < x.length; i++) {
+			        x[i].src = feature.properties.images[i]; 
+				}
 				title.textContent=feature.properties.title;
 				description.textContent=feature.properties.description;
 				first.text(feature.properties.standings.First);
 				second.text(feature.properties.standings.Second);
 				third.text(feature.properties.standings.Third);
+				
 				flying=false;
 			}
 		});
