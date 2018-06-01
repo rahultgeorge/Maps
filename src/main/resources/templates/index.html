@@ -67,8 +67,12 @@
 		var i=0;
 		var modal = document.getElementById('ViewPics');
 		//FETCHED from DB (CAN BE USER INPUT)
-		
-		console.log();
+		var featuresDB=[];
+		for (i=0;i< $(".feature").length;i++)
+		{
+			featuresDB.push($(".feature")[i].innerText);
+		}
+		console.log(featuresDB);
 		var featuresGEO=[{
 			"type": "Feature",
 			"geometry": {
