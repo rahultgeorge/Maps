@@ -148,8 +148,6 @@ i{
     height: 100%;
 	display:none;
 	object-fit: contain;
-	top:0%;
-	position:absolute;
 }
 
 /* The Close Button */

@@ -17,7 +17,7 @@
 		
 			<h1>Coupe d'Afrique des Nations</h1>
 			<p>The Total Africa Cup of Nations, officially CAN (French: Coupe d'Afrique des Nations), also referred to as African Cup of Nations, or AFCON, is the main international association football competition in Africa. It is sanctioned by the Confederation of African Football (CAF) and was first held in 1957. Since 1968, it has been held every two years.</p>
- 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LnAxfMmY6yI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 			<button id='Start'>Start Tour</button>
 		</div>
 		
@@ -38,7 +38,7 @@
 	<div id="ViewPics" class="modal">
 	  <!-- Modal content -->
 	  <div class="modal-content">
-	    <span class="close">&times;</span>
+
 		<button class="backward" onclick="plusDivs(-1)">&#10094;</button>
 		<button class="forward" onclick="plusDivs(+1)">&#10095;</button>
 	  <img class="Slides"  />
@@ -58,6 +58,7 @@
 		var slideIndex = 1;
 		var images=null;
 		var i=0;
+		var modal = document.getElementById('ViewPics');
 		//FETCHED from DB (CAN BE USER INPUT)
 		var featuresGEO=[{
 			"type": "Feature",
@@ -117,11 +118,21 @@
 	function showDivs(n) {
 	    var i;
 	    var x = document.getElementsByClassName("Slides");
-		slideIndex=n%images.length;
+		if(slideIndex>0)
+		 slideIndex=n%images.length;
+		else
+		 slideIndex=images.length+slideIndex
 	    for (i = 0; i < x.length; i++) {
 	        x[i].style.display = "none"; 
 	    }
 	    x[slideIndex].style.display = "block"; 
+	}
+	
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	    if (event.target == modal) {
+	        modal.style.display = "none";
+	    }
 	}
 		
 	
