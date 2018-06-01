@@ -18,12 +18,6 @@
 			<h1>Coupe d'Afrique des Nations</h1>
 			<p>The Total Africa Cup of Nations, officially CAN (French: Coupe d'Afrique des Nations), also referred to as African Cup of Nations, or AFCON, is the main international association football competition in Africa. It is sanctioned by the Confederation of African Football (CAF) and was first held in 1957. Since 1968, it has been held every two years.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/LnAxfMmY6yI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<div class="container">
-  <h1>Database Output</h1>
-  <ul th:each="record : ${records}">
-    <li th:text="${record}"/>
-  </ul>
-</div>
 <br>
 			<button id='Start'>Start Tour</button>
 		</div>
@@ -67,6 +61,12 @@
 		var i=0;
 		var modal = document.getElementById('ViewPics');
 		//FETCHED from DB (CAN BE USER INPUT)
+		var featuresDB=[];
+		foreach(var record in ${records})
+		{
+			feauturesDB.push(record);
+		}
+		console.log(featuresDB);
 		var featuresGEO=[{
 			"type": "Feature",
 			"geometry": {
