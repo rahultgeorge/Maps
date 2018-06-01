@@ -168,6 +168,14 @@
 		map.on('moveend', function(){
 			if(flying==true)
 			{	
+				if(pos==2)
+				{
+					$("#fly").html('Restart');
+				}
+				else
+				{
+					$("#fly").html('Continue');
+				}
 			    var i;
 			    var x = document.getElementsByClassName("Slides");
 				$(".map-overlay-left-container").show();
@@ -183,7 +191,6 @@
 				first.text(feature.properties.standings.First);
 				second.text(feature.properties.standings.Second);
 				third.text(feature.properties.standings.Third);
-				
 				flying=false;
 			}
 		});
