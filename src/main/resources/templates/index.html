@@ -162,6 +162,7 @@
 				$(".map-overlay-right-container").show();
 				$(".View").show();		
 				var feature=featuresGEO[pos];
+				images=feature.properties.images;
 			    for (i = 0; i < x.length; i++) {
 			        x[i].src = feature.properties.images[i]; 
 				}
