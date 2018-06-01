@@ -92,7 +92,7 @@ p{
 .View
 {
     position: absolute;
-    display: block;
+    display: none;
     width: 8%;
     height: 6%;
     top: 60%;

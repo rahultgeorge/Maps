@@ -103,12 +103,12 @@
 				
 	//10 seconds
 	setInterval(function() {
-		$(".map-overlay-center-container").css('background-image', "url(" + images[i] + ")");
+		$(".map-overlay-center-container").css('background-image', "url(" + bg_images[i] + ")");
 		i=(i+1)%bg_images.length;
 	}, 10000)
 		
 	
-	showDivs(slideIndex);
+
 
 	function plusDivs(n) {
 	    showDivs(slideIndex+n);
@@ -160,7 +160,7 @@
 			    var x = document.getElementsByClassName("Slides");
 				$(".map-overlay-left-container").show();
 				$(".map-overlay-right-container").show();
-				$("#Look").show();		
+				$(".View").show();		
 				var feature=featuresGEO[pos];
 			    for (i = 0; i < x.length; i++) {
 			        x[i].src = feature.properties.images[i]; 
@@ -204,7 +204,7 @@
 	document.getElementById('fly').addEventListener('click', function() {
 		$(".map-overlay-left-container").hide();
 		$(".map-overlay-right-container").hide();	
-		$("#Look").hide();	
+		$(".View").hide();	
 		pos=(pos+1)%featuresGEO.length;
 		var target = featuresGEO[pos].geometry.coordinates;
  
