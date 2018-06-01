@@ -50,8 +50,8 @@ public class Main {
   }
 
   @RequestMapping("/")
-  String index() {
-	  fetchData();
+  String index(Map<String, Object> model) {
+	  fetchData(model);
     return "index";
   }
 
@@ -77,7 +77,7 @@ public class Main {
   }
   
  
-  void fetchData () {
+  void fetchData (Map<String, Object> model) {
       try (Connection connection = dataSource.getConnection()) {
         Statement stmt = connection.createStatement();
       
