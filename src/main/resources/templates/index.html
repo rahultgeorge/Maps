@@ -83,6 +83,7 @@
 		var second=$(".Second");
 		var third=$(".Third");
 		var countries=null;
+		var countryFav=null;
 		var pos=-1;
 		var flying=false;
 		var bg_images=["1.jpg","2.jpg","3.jpeg"];
@@ -91,6 +92,7 @@
 		var i=0;
 		var modal_info = document.getElementById('ViewPics');
 		var modal_vote = document.getElementById('VoteForTeam');
+		var ul = document.getElementById("Countries");
 		//FETCHED from DB (CAN BE USER INPUT )
 		
 		var featuresDB=[];
@@ -148,14 +150,13 @@
 	
 	$("#UserVote").click(function(){
 		$("#VoteForTeam").css("display","block"); 
-	    var ul = document.getElementById("Countries");
-		$.each(countries,function(index,val){
-			var li = document.createElement("li");
-			li.appendChild(document.createTextNode(val));
-			ul.appendChild(li);
-		});
+	  
 	});
 	
+	$("#country").click(function()
+	{
+		countryFav=this.text();
+	});
 
 	function setMap()
 	{
@@ -196,6 +197,12 @@
 				third.text(feature.properties.standings.Third);
 				countries=(feature.properties.participants);
 				flying=false;
+				$.each(countries,function(index,val){
+					var li = document.createElement("li");
+					li.appendChild(document.createTextNode(val));
+					ul.appendChild(li);
+					li.setAttributes("id","country");
+				});
 			}
 		});
 	
