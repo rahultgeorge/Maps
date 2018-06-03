@@ -102,17 +102,6 @@ p{
     z-index: 1;	
 }
 
-.Test
-{
-    position: absolute;
-    display: none;
-    width: 8%;
-    height: 6%;
-    top: 60%;
-    left: 0%;
-    padding: 10px;
-    z-index: 1;			
-}
 #Look
 {
 	width: 100%;
@@ -162,7 +151,6 @@ i{
 	display:none;
 	object-fit: contain;
 }
-
 
 
 .container
