@@ -102,7 +102,7 @@ p{
     z-index: 1;	
 }
 
-.Vote
+.UserVote
 {
     position: absolute;
     display: none;
