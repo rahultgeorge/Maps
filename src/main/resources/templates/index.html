@@ -54,11 +54,8 @@
 			  <ul class="dropdown-menu" id="Countries">
 			  </ul>
 			</div>
-		    <input type="text" />
-		    <button id="Submit">Submit</button>
-			
-			
-			
+		    <input type="text" style="margin:5px;width:80%;" />
+		    <button id="Submit">Submit</button>	
 	  </div>  
 	</div>  
 	
@@ -98,7 +95,6 @@
 		var modal_info = document.getElementById('ViewPics');
 		var modal_vote = document.getElementById('VoteForTeam');
 		var ul = document.getElementById("Countries");
-		//FETCHED from DB (CAN BE USER INPUT )
 		
 		var featuresDB=[];
 		for (i=0;i< $(".feature").length;i++)
@@ -135,7 +131,7 @@
 			modal_vote.style.display = "none";
 		}
 	}
-	$(".dropdown-menu li").click(function(){
+	$(".country").click(function(){
 	  $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
 	  $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
 	});
