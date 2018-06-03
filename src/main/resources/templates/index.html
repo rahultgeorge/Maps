@@ -40,10 +40,25 @@
 	
 	<div class='View'><button id='Look'><i class="fa fa-info fa-3x"></i></button></div>
 	
-	<div class='Vote'><button id='Look'><i class="fa fa-info fa-3x"></i></button></div>
+	<div class='Vote'><button id='UserVote'><i class="fa fa-thumbs-up fa-3x"></i></button></div>
 	
 
-	  
+	<div id="VoteForTeam" class="modal">
+	  <!-- Modal content -->
+	  <div class="modal-content">
+		  	<!-- DROP DOWN TO SELECT TEAM-->
+			<h1>Holler for your favourite team, show them some love</h1>
+			<div class="dropdown">
+			  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Select Country
+			  <span class="caret"></span></button>
+			  <ul class="dropdown-menu">
+			    <li><a href="#">HTML</a></li>
+			    <li><a href="#">CSS</a></li>
+			    <li><a href="#">JavaScript</a></li>
+			  </ul>
+			</div>
+	  </div>  
+	</div>  
 	
 	<div id="ViewPics" class="modal">
 	  <!-- Modal content -->
@@ -55,7 +70,7 @@
 	  <img class="Slides"  />
 	  <img class="Slides"  />
 	  </div>
-	  
+  </div>
 	  
 	
 	<div class="container">
@@ -138,6 +153,9 @@
 		   x[slideIndex].style.display = "block"; 	
 	});
 	
+	$("#UserVote").click(function(){
+		$("#VoteForTeam").css("display","block");
+	});
 	
 
 	function setMap()
