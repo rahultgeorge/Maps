@@ -239,9 +239,10 @@
 		$(".Vote").hide();	
 		pos=(pos+1)%featuresDB.length;
 		var target = featuresDB[pos].geometry.coordinates;
+		var countryList=document.getElementById("Countries");
 		var countryElements=document.getElementsByClassName("country");
 	    for (i = 0; i < countryElements.length; i++) {
-	        countryElements.remove(); 
+	        countryList.remove(countryElements[i]); 
 	    }
 		map.flyTo({
 			// These options control the ending camera position: centered at
