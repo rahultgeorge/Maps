@@ -136,13 +136,13 @@
 {
 	//INSERT INTO DB #team value and country_fav
 	$("#team")[0].value="";
-	 $(".dropdown-toggle").text("Select Country"+'<span class="caret"></span>');
+	 $(".dropdown-toggle").html("Select Country"+'<span class="caret"></span>');
 	modal_vote.style.display = "none";
 });
 
 
 $(".dropdown-menu").on('click', 'li', function(){
-    $(".dropdown-toggle").text($(this).text()+'<span class="caret"></span>');
+    $(".dropdown-toggle").html($(this).text()+'<span class="caret"></span>');
 	country_fav=$(this).text();
     
  });
