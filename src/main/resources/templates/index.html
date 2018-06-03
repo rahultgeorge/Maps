@@ -239,7 +239,7 @@
 		$(".Vote").hide();	
 		pos=(pos+1)%featuresDB.length;
 		var target = featuresDB[pos].geometry.coordinates;
- 
+        $(".country").remove();
 		map.flyTo({
 			// These options control the ending camera position: centered at
 			// the target, at zoom level 9, and north up.
