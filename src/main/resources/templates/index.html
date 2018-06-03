@@ -89,7 +89,8 @@
 		var slideIndex = 1;
 		var images=null;
 		var i=0;
-		var modal = document.getElementById('ViewPics');
+		var modal_info = document.getElementById('ViewPics');
+		var modal_vote = document.getElementById('VoteForTeam');
 		//FETCHED from DB (CAN BE USER INPUT )
 		
 		var featuresDB=[];
@@ -99,16 +100,6 @@
 			featuresDB.push(JSON.parse(featuresText));
 		}
 		console.log(featuresDB);
-		
-				
-	//10 seconds
-	setInterval(function() {
-		$(".map-overlay-center-container").css('background-image', "url(" + bg_images[i] + ")");
-		i=(i+1)%bg_images.length;
-	}, 10000)
-		
-	
-
 
 	function plusDivs(n) {
 	    showDivs(slideIndex+n);
@@ -129,9 +120,13 @@
 	
 	// When the user clicks anywhere outside of the modal, close it
 	window.onclick = function(event) {
-	    if (event.target == modal) {
+	    if (event.target == modal_info) {
 	        modal.style.display = "none";
 	    }
+		else if(event.target==modal_vote)
+		{
+			modal.style.display = "none";
+		}
 	}
 		
 	
@@ -154,7 +149,7 @@
 	$("#UserVote").click(function(){
 		$("#VoteForTeam").css("display","block"); 
 		$.each(countries,function(index,val){
-			$("#Countries").add("li").value=val;
+			$("#Countries").add("<li>"+val+"</li>");
 		});
 	});
 	
