@@ -148,8 +148,11 @@
 	
 	$("#UserVote").click(function(){
 		$("#VoteForTeam").css("display","block"); 
+	    var ul = document.getElementById("Countries");
 		$.each(countries,function(index,val){
-			$("#Countries").add("<li>"+val+"</li>");
+			var li = document.createElement("li");
+			li.appendChild(document.createTextNode("Element 4"));
+			ul.appendChild(li);
 		});
 	});
 	
