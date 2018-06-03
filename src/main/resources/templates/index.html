@@ -54,8 +54,8 @@
 			  <ul class="dropdown-menu" id="Countries">
 			  </ul>
 			</div>
-			<input type="text" style="width:90%;height:100%;margin:5px;" /><br>
-			<Button id="Submit" style="width=100%;">Submit</Button>
+			<input type="text" style="width:90%;height:50%;margin:5px;" /><br>
+			<Button id="Submit">Submit</Button>
 	  </div>  
 	</div>  
 	
@@ -139,9 +139,8 @@
 });
 
 
-$(".dropdown-menu ul li").click(function(){
-  $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
-  $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+$(".dropdown-menu ul").click(function(){
+	countryFav=this.text();
 });
 	
 	mapboxgl.accessToken = 'pk.eyJ1IjoicmFodWx0Z2VvcmdlIiwiYSI6ImNqaG5lODRjMjNwODIzNm5tcG1hNHV2MnUifQ.y_2bEvmsNFPRZoXqoZyxkg';
@@ -165,11 +164,6 @@ $(".dropdown-menu ul li").click(function(){
 	  
 	});
 	
-	$("ul li").click(function()
-	{
-		countryFav=this.text();
-	});
-
 	function setMap()
 	{
 	
