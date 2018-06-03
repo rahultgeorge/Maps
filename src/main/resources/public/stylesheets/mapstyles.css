@@ -101,6 +101,18 @@ p{
     padding: 10px;
     z-index: 1;	
 }
+
+.Vote
+{
+    position: absolute;
+    display: none;
+    width: 8%;
+    height: 6%;
+    top: 60%;
+    left: 0%;
+    padding: 10px;
+    z-index: 1;			
+}
 #Look
 {
 	width: 100%;
@@ -151,20 +163,7 @@ i{
 	object-fit: contain;
 }
 
-/* The Close Button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
 
 .container
 {

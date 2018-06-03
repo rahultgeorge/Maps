@@ -37,7 +37,19 @@
 	<div class="container">
 	 TO DO:USER INPUT FOR TEAM SUPPORT AND DISPLAY THE EXISTING ONES
 	</div>
+	
+	
+	
 	<div class='View'><button id='Look'><i class="fa fa-info fa-3x"></i></button></div>
+	
+	<div class='Vote'><button id='VoteTeam'><i class="fa fa-thumbs-o-up fa-3x"></i></button></div>
+	
+	<div id="UserVote" class="modal">
+	  <!-- Modal content -->
+	  <div class="modal-content">
+
+	  </div>
+	  
 	
 	<div id="ViewPics" class="modal">
 	  <!-- Modal content -->
@@ -132,9 +144,7 @@
 		   x[slideIndex].style.display = "block"; 	
 	});
 	
-	$(".close").click(function(){
-		$("#ViewPics").css("display","none");
-	});
+	
 
 	function setMap()
 	{
@@ -161,7 +171,8 @@
 			    var x = document.getElementsByClassName("Slides");
 				$(".map-overlay-left-container").show();
 				$(".map-overlay-right-container").show();
-				$(".View").show();		
+				$(".View").show();	
+				$(".Vote").show();	
 				var feature=featuresDB[pos];
 				images=feature.properties.images;
 			    for (i = 0; i < x.length; i++) {
@@ -206,6 +217,7 @@
 		$(".map-overlay-left-container").hide();
 		$(".map-overlay-right-container").hide();	
 		$(".View").hide();	
+		$(".Vote").hide();	
 		pos=(pos+1)%featuresDB.length;
 		var target = featuresDB[pos].geometry.coordinates;
  
