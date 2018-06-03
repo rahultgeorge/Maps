@@ -54,8 +54,6 @@
 			  <ul class="dropdown-menu" id="Countries">
 			  </ul>
 			</div>
-		    <input type="text" style="margin:5px;width:80%;" />
-		    <button id="Submit">Submit</button>	
 	  </div>  
 	</div>  
 	
@@ -95,6 +93,7 @@
 		var modal_info = document.getElementById('ViewPics');
 		var modal_vote = document.getElementById('VoteForTeam');
 		var ul = document.getElementById("Countries");
+		//FETCHED from DB (CAN BE USER INPUT )
 		
 		var featuresDB=[];
 		for (i=0;i< $(".feature").length;i++)
@@ -131,6 +130,7 @@
 			modal_vote.style.display = "none";
 		}
 	}
+		
 	
 	mapboxgl.accessToken = 'pk.eyJ1IjoicmFodWx0Z2VvcmdlIiwiYSI6ImNqaG5lODRjMjNwODIzNm5tcG1hNHV2MnUifQ.y_2bEvmsNFPRZoXqoZyxkg';
 	var map=null;
@@ -153,7 +153,10 @@
 	  
 	});
 	
-
+	$("#country").click(function()
+	{
+		countryFav=this.text();
+	});
 
 	function setMap()
 	{
