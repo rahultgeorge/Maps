@@ -201,7 +201,7 @@
 					var li = document.createElement("li");
 					li.appendChild(document.createTextNode(val));
 					ul.appendChild(li);
-					li.setAttribute("id","country");
+					li.setAttribute("class","country");
 				});
 			}
 		});
@@ -239,7 +239,10 @@
 		$(".Vote").hide();	
 		pos=(pos+1)%featuresDB.length;
 		var target = featuresDB[pos].geometry.coordinates;
-        $("#country").remove();
+		var countryElements=document.getElementByClassName("country");
+	    for (i = 0; i < countryElements.length; i++) {
+	        countryElements.remove(); 
+	    }
 		map.flyTo({
 			// These options control the ending camera position: centered at
 			// the target, at zoom level 9, and north up.
