@@ -51,10 +51,7 @@
 			<div class="dropdown">
 			  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Select Country
 			  <span class="caret"></span></button>
-			  <ul class="dropdown-menu">
-			    <li><a href="#">HTML</a></li>
-			    <li><a href="#">CSS</a></li>
-			    <li><a href="#">JavaScript</a></li>
+			  <ul class="dropdown-menu" id="Countries">
 			  </ul>
 			</div>
 	  </div>  
@@ -155,6 +152,10 @@
 	
 	$("#UserVote").click(function(){
 		$("#VoteForTeam").css("display","block");
+		var countries=featuresDB.properties.participants;
+		$.each(countries,function(val){
+			$("#Countries").add("li").value=val;
+		});
 	});
 	
 
