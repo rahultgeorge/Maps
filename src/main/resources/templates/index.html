@@ -82,6 +82,7 @@
 		var first=$(".First")
 		var second=$(".Second");
 		var third=$(".Third");
+		var countries=null;
 		var pos=-1;
 		var flying=false;
 		var bg_images=["1.jpg","2.jpg","3.jpeg"];
@@ -151,8 +152,7 @@
 	});
 	
 	$("#UserVote").click(function(){
-		$("#VoteForTeam").css("display","block");
-		var countries=featuresDB.properties.participants;
+		$("#VoteForTeam").css("display","block"); 
 		$.each(countries,function(val){
 			$("#Countries").add("li").value=val;
 		});
@@ -196,6 +196,7 @@
 				first.text(feature.properties.standings.First);
 				second.text(feature.properties.standings.Second);
 				third.text(feature.properties.standings.Third);
+				countries=(feature.properties.participants);
 				flying=false;
 			}
 		});
