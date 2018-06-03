@@ -54,7 +54,7 @@
 			  <ul class="dropdown-menu" id="Countries">
 			  </ul>
 			</div>
-			<input type="text" style="width:90%;height:50%;margin:5px;" /><br>
+			<input id="team" type="text" style="width:90%;height:50%;margin:5px;" /><br>
 			<Button id="Submit">Submit</Button>
 	  </div>  
 	</div>  
@@ -135,13 +135,14 @@
 	$("#Submit").click(function()
 {
 	//INSERT INTO DB
-	$("text").value="";
+	$("input#team").value="";
 	modal_vote.style.display = "none";
 });
 
 
 $(".dropdown-menu").on('click', 'li', function(){
-    $(".btn btn-primary dropdown-toggle").text($(this).text());
+    $(".dropdown-toggle").text($(this).text());
+	country_fav=$this.text();
     
  });
 
