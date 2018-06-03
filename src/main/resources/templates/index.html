@@ -153,7 +153,7 @@
 	
 	$("#UserVote").click(function(){
 		$("#VoteForTeam").css("display","block"); 
-		$.each(countries,function(val){
+		$.each(countries,function(index,val){
 			$("#Countries").add("li").value=val;
 		});
 	});
