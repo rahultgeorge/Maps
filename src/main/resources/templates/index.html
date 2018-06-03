@@ -54,8 +54,8 @@
 			  <ul class="dropdown-menu" id="Countries">
 			  </ul>
 			</div>
-			<input type="text" style="width:90%;height:50%;margin:5px;" /><br>
-			<Button id="Submit">Submit</Button>
+			<input type="text" style="width:90%;height:100%;margin:5px;" /><br>
+			<Button id="Submit" style="width=100%;">Submit</Button>
 	  </div>  
 	</div>  
 	
@@ -88,7 +88,6 @@
 		var countryFav=null;
 		var pos=-1;
 		var flying=false;
-		var bg_images=["1.jpg","2.jpg","3.jpeg"];
 		var slideIndex = 1;
 		var images=null;
 		var i=0;
@@ -140,7 +139,7 @@
 });
 
 
-$(".dropdown-menu li").click(function(){
+$(".dropdown-menu ul li").click(function(){
   $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
   $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
 });
